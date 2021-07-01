@@ -11,6 +11,7 @@ const getters = {
     let sum = state.upload.progress.reduce((acc, val) => acc + val);
     return Math.ceil((sum / state.upload.size) * 100);
   },
+  uploads: (state) => state.upload.uploads,
 };
 
 export default getters;

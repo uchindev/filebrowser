@@ -462,3 +462,45 @@ table tr>*:last-child {
   font-size: 1.5em;
   font-weight: 500;
 }
+
+.upload-panel {
+  position: absolute;
+  bottom: 1em;
+  right: 1em;
+  width: 350px;
+  background-color: #fafafa;
+  box-shadow: rgba(0, 0, 0, 0.06) 0px 1px 3px, rgba(0, 0, 0, 0.12) 0px 1px 2px;
+  border-radius: 4px;
+  line-height: 1.3;
+  z-index: 111;
+}
+
+.upload-panel > .tittle {
+  font-size: 16px;
+  padding: 10px;
+  background: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.list-upload-file {
+  padding: 5px;
+}
+.list-upload-file .file {
+  margin-bottom: 5px;
+  padding: 10px;
+  background: #fff;
+}
+
+.list-upload-file .file .progress{
+  text-align: right;
+  color: #888;
+  font-size: 16px;
+}
+
+.list-upload-file .file .file-name {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  overflow: hidden;
+}

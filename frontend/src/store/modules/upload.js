@@ -33,7 +33,10 @@ const mutations = {
     Vue.set(state.uploads, item.id, item);
   },
   removeJob(state, id) {
-    delete state.uploads[id];
+    Vue.delete(state.uploads, id);
+  },
+  setUpload(state, { id, loaded }) {
+    Vue.set(state.uploads, id, { ...state.uploads[id], loaded });
   },
 };
 
@@ -87,11 +90,16 @@ const actions = {
         await api.post(item.path).catch(Vue.prototype.$showError);
       } else {
         let onUpload = throttle(
-          (event) =>
+          (event) => {
             context.commit("setProgress", {
               id: item.id,
               loaded: event.loaded,
-            }),
+            });
+            context.commit("setUpload", {
+              id: item.id,
+              loaded: event.loaded,
+            });
+          },
           100,
           { leading: true, trailing: false }
         );
